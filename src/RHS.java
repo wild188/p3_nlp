@@ -38,4 +38,25 @@ public class RHS {
 			}
 			System.out.println();
 		}
+
+		public boolean contains(String test){
+			if(!test.equals(rhs.get(0))){
+				return false;
+			}
+			if(rhs.size() == 1){
+				return false;
+			}
+			if(!test.equals(rhs.get(1))){
+				return false;
+			}
+			return true;
+		}
+
+		@Override
+		public String toString(){
+			if(rhs.size() == 1){
+				return rhs.get(0);
+			}
+			return rhs.get(0) + ", " + rhs.get(1);
+		}
 	}

@@ -1,0 +1,1 @@
+(ROOT(S(NP(Det every) (Noun pickle) ) (VP(Verb understood) (NP(Det the) (Noun president) ) ) )  !) 

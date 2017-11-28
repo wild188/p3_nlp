@@ -1,0 +1,6 @@
+every
+pickle
+understood
+the
+president
+(ROOT null !)
