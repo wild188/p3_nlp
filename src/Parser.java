@@ -221,10 +221,6 @@ public class Parser {
 			sentence.remove(sentence.size() - 1);
 			parser.parse(sentence);
 			System.out.println("(ROOT " + parser.PrintOneParse(sentence) + " " + end + ")");
-		}
-		
-
-		
-		
+		}		
 	}
 }

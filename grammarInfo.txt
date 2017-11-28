@@ -54,14 +54,8 @@ S
 ROOT
 VP
 
-Noun
-->
-Adj
-Noun
-Noun
-->
-president
-Noun
+Noun -> Adj Noun
+Noun -> president Noun
 ->
 sandwich
 Noun
