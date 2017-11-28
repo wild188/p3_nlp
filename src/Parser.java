@@ -80,15 +80,15 @@ public class Parser {
 	 */
 	public void parse(ArrayList<String> sentence) {
 		int len = sentence.size();
-		for(String word : sentence){
-			System.out.println(word);
-		}
+		// for(String word : sentence){
+		// 	System.out.println(word);
+		// }
 		table = new Options[len + 1][len + 1];
 
 		for(int j = 1; j <= len; j++){
 			String word = sentence.get(j - 1);
 			table[j - 1][j] = new Options(g.findPreTerminals(word));
-			System.out.println((j - 1) + ", " + j + " : " + word + " => " + table[j - 1][j].toString());
+			//System.out.println((j - 1) + ", " + j + " : " + word + " => " + table[j - 1][j].toString());
 
 			for(int i = j - 2; i >= 0; i--){
 				for(int k = i + 1; k <= j - 1; k++){
@@ -172,7 +172,7 @@ public class Parser {
 
 		ArrayList<ArrayList<String>> toParse = new ArrayList<ArrayList<String>>();
 		
-		String end = "$.$"; //otherwise undefined BILLY
+		//String end = "$.$"; //otherwise undefined BILLY
 
 		// read a parse tree from a bash pipe
 		try {
@@ -194,15 +194,15 @@ public class Parser {
 							if(!word.equals(".") && !word.equals("!")){
 								sentence.add(word);
 							}else if(word.contains(".")){
-								//sentence.add(word);
-								end = ".";
+								sentence.add(word);
+								//end = ".";
 								toParse.add(sentence);
 								sentence = new ArrayList<String>();
 							}else if(word.contains("!")){
-								//sentence.add(word);
+								sentence.add(word);
 								toParse.add(sentence);
 								sentence = new ArrayList<String>();
-								end = "!";
+								//end = "!";
 							}
 						}
 					}
@@ -217,6 +217,8 @@ public class Parser {
 			e.printStackTrace();
 		}
 		for(ArrayList<String> sentence : toParse){
+			String end = sentence.get(sentence.size() - 1);
+			sentence.remove(sentence.size() - 1);
 			parser.parse(sentence);
 			System.out.println("(ROOT " + parser.PrintOneParse(sentence) + " " + end + ")");
 		}
