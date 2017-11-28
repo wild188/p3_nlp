@@ -29,6 +29,30 @@ public class Parser {
 		g = new Grammar(grammar_filename);
 	}
 
+	private Options lhsGenerator(Options b, Options c){
+		Options output = new Options();
+		boolean empty = true;
+		for(String rhs1 : b.lhsList){
+			ArrayList<String> _rhs = new ArrayList<String>(2);
+			_rhs.add(rhs1);
+			for(String rhs2 : c.lhsList){
+				_rhs.add(rhs2);
+				RHS potentialRHS = new RHS(_rhs);
+				String lhs = g.rhsLookup(potentialRHS);
+				if(lhs != null){
+					empty = false;
+					if(!output.lhsList.contains(lhs)){
+						output.lhsList.add(lhs);
+						System.out.println(lhs + " => " + potentialRHS.toString());
+					}
+				}
+				_rhs.remove(1);
+			}
+		}
+		return output;
+	}
+
+
 	// private Options lhsGenerator(Options b, Options c){
 	// 	Options output = new Options();
 	// 	for(int i = 0; i < b.lhsList.size(); i++){
@@ -91,17 +115,14 @@ public class Parser {
 
 			for(int i = j - 2; i > 0; i--){
 				for(int k = i + 1; k < j - 1; k++){
-					// if(table[i][k] == null || table[k][j] == null){
-					// 	continue;
-					// }
-					// Options b = table[i][k];
-					// Options c = table[k][j];
-					// if(table[i][j] == null){
-					// 	table[i][j] = lhsGenerator(b, c);
-					// }else{
-					// 	Options newOptions = lhsGenerator(b, c);
-					// 	table[i][j] = mergeOptions(newOptions, table[i][j]);
-					// }
+
+					if(table[i][k] == null || table[k][j] == null){
+						continue;
+					}
+					Options b = table[i][k];
+					Options c = table[k][j];
+					table[i][j] = lhsGenerator(b, c);
+
 				}
 			}
 		}
@@ -110,6 +131,7 @@ public class Parser {
 	 * Print the parse obtained after calling parse()
 	 */
 	public String PrintOneParse() {
+		
 		return null;
 	}
 	

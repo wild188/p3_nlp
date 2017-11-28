@@ -39,7 +39,7 @@ public class Grammar {
 			ArrayList<RHS> rhsList = grammar.get(lhs);
 			for(RHS rhs : rhsList){
 				rhsLookup.put(rhs, lhs);
-				System.out.println(lhs + " => " + rhs.toString());
+				//System.out.println(lhs + " => " + rhs.toString());
 			}
 		}
 	}
