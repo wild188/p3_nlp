@@ -1,6 +1,58 @@
-every
-pickle
-understood
-the
+Noun => Adj, Noun
+Noun => president
+Noun => sandwich
+Noun => pickle
+Noun => staff
+Noun => floor
+NP => Det, Noun
+NP => NP, PP
+S => NP, VP
+Verb => ate
+Verb => wanted
+Verb => kissed
+Verb => understood
+Verb => pickled
+VP => Verb, NP
+Det => the
+Det => a
+Det => every
+ROOT => S, .
+ROOT => S, !
+PP => Prep, NP
+Adj => fine
+Adj => delicious
+Adj => perplexed
+Adj => pickled
+Prep => with
+Prep => on
+Prep => under
+Prep => in
 president
-(ROOT null !)
+sandwich
+pickle
+staff
+floor
+ate
+wanted
+kissed
+understood
+pickled
+the
+a
+every
+fine
+delicious
+perplexed
+pickled
+with
+on
+under
+in
+every
+president
+understood
+a
+delicious
+delicious
+staff
+(ROOT null .)

@@ -1,1 +1,30 @@
-(ROOT(S(NP(Det every) (Noun pickle) ) (VP(Verb understood) (NP(Det the) (Noun president) ) ) )  !) 
+Noun => Adj, Noun
+Noun => president
+Noun => sandwich
+Noun => pickle
+Noun => staff
+Noun => floor
+NP => Det, Noun
+NP => NP, PP
+S => NP, VP
+Verb => ate
+Verb => wanted
+Verb => kissed
+Verb => understood
+Verb => pickled
+VP => Verb, NP
+Det => the
+Det => a
+Det => every
+ROOT => S, .
+ROOT => S, !
+PP => Prep, NP
+Adj => fine
+Adj => delicious
+Adj => perplexed
+Adj => pickled
+Prep => with
+Prep => on
+Prep => under
+Prep => in
+(ROOT(S(NP(Det every) (Noun president) ) (VP(Verb understood) (NP(Det a) (Noun(Adj delicious) (Noun(Adj delicious) (Noun staff) ) ) ) ) )  .) 

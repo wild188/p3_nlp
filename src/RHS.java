@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class RHS {
 		private ArrayList<String> rhs;
@@ -10,6 +11,10 @@ public class RHS {
 				this.rhs.add(s);
 			}
 			this.prob = _prob;
+		}
+
+		public RHS(ArrayList<String> _rhs){
+			this(_rhs, 0);
 		}
 		
 		public double getProb() {
@@ -58,5 +63,27 @@ public class RHS {
 				return rhs.get(0);
 			}
 			return rhs.get(0) + ", " + rhs.get(1);
+		}
+
+		@Override
+		public boolean equals(Object x){
+			RHS b = (RHS)x;
+			if(b == null) return false;
+			if(!this.first().equals(b.first())){
+				return false;
+			}
+			//if both null
+			if(rhs.size() == 1 && b.second() == null){
+				return true;
+			}
+			if(this.second().equals(b.second())){
+				return true;
+			}
+			return false;
+		}
+
+		@Override
+		public int hashCode(){
+			return Objects.hash(this.toString());
 		}
 	}
