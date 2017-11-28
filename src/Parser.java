@@ -49,12 +49,15 @@ public class Parser {
 			for(String rhs2 : c.lhsList){
 				_rhs.add(rhs2);
 				RHS potentialRHS = new RHS(_rhs);
-				String lhs = g.rhsLookup(potentialRHS);
-				if(lhs != null){
-					empty = false;
-					if(!output.lhsList.contains(lhs)){
-						output.lhsList.add(lhs);
-						//System.out.println(lhs + " => " + potentialRHS.toString());
+				//String lhs = g.rhsLookup(potentialRHS);
+				ArrayList<String> lhsList = g.findLHS(rhs1 + " " + rhs2);
+				if(lhsList != null){
+					for(String lhs : lhsList){
+						empty = false;
+						if(!output.lhsList.contains(lhs)){
+							output.lhsList.add(lhs);
+							//System.out.println(lhs + " => " + potentialRHS.toString());
+						}
 					}
 				}
 				_rhs.remove(1);
@@ -135,12 +138,17 @@ public class Parser {
 					for(String rhs2 : table[k][y].lhsList){
 						_rhs.add(rhs2);
 						RHS possibleRHS = new RHS(_rhs);
-						String possibleLHS = g.rhsLookup(possibleRHS);
-						if(possibleLHS != null && possibleLHS.equals(lhs)){
-							output.append(lhs);
-							output.append(" ");
-							output.append(drillDown(x, k, lhs1Index, sentence));
-							output.append(drillDown(k, y, lhs2Index, sentence));
+						//String possibleLHS = g.rhsLookup(possibleRHS);
+						ArrayList<String> possibleLHSlist = g.findLHS(rhs1 + " " + rhs2);
+						if(possibleLHSlist != null){
+							for(String possibleLHS : possibleLHSlist){
+								if(possibleLHS != null && possibleLHS.equals(lhs)){
+									output.append(lhs);
+									output.append(" ");
+									output.append(drillDown(x, k, lhs1Index, sentence));
+									output.append(drillDown(k, y, lhs2Index, sentence));
+								}
+							}
 						}
 						_rhs.remove(1);
 						lhs2Index++;
