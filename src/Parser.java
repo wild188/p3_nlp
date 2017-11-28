@@ -63,31 +63,6 @@ public class Parser {
 		return output;
 	}
 
-
-	// private Options lhsGenerator(Options b, Options c){
-	// 	Options output = new Options();
-	// 	for(int i = 0; i < b.lhsList.size(); i++){
-	// 		ArrayList<String> blhsList = g.findLHS(b.lhsList.get(i));
-	// 		for(int j = 0; j < c.lhsList.size(); j++){
-	// 			ArrayList<String> clhsList = g.findLHS(c.lhsList.get(j));
-	// 			for(int k = 0; k < clhsList.size(); k++){
-	// 				int bindex = blhsList.indexOf(clhsList.get(k));
-	// 				if(bindex >= 0){
-	// 					int oindex = output.lhsList.indexOf(clhsList.get(k));
-	// 					double probability = b.prob.get(bindex) * c.prob.get(k);
-	// 					if(oindex < 0){
-	// 						output.lhsList.add(clhsList.get(k));
-	// 						output.prob.add(probability);
-	// 					}else{
-	// 						output.prob.add(oindex, (output.prob.get(oindex) + probability));
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// 	return output;
-	// }
-
 	private Options mergeList(Options a, Options b){
 		Options out = new Options(a.lhsList);
 		for(String lhs : b.lhsList){
@@ -117,7 +92,6 @@ public class Parser {
 
 			for(int i = j - 2; i >= 0; i--){
 				for(int k = i + 1; k <= j - 1; k++){
-
 					if(table[i][k] == null || table[k][j] == null){
 						
 						continue;
@@ -148,13 +122,15 @@ public class Parser {
 		// read the grammar in the file args[0]
 		Parser parser = new Parser(args[0]);
 
-		ArrayList<String> sentence = new ArrayList<String>(); // otherwise undefined BILLY
+		ArrayList<ArrayList<String>> toParse = new ArrayList<ArrayList<String>>();
+		
 		String end = "$.$"; //otherwise undefined BILLY
 
 		// read a parse tree from a bash pipe
 		try {
 			InputStreamReader isReader = new InputStreamReader(System.in);
 			BufferedReader bufReader = new BufferedReader(isReader);
+			ArrayList<String> sentence = new ArrayList<String>(); // otherwise undefined BILLY
 			while(true) {
 				String line = null;
 				if((line=bufReader.readLine()) != null) {
@@ -170,8 +146,14 @@ public class Parser {
 							if(!word.equals(".") && !word.equals("!")){
 								sentence.add(word);
 							}else if(word.contains(".")){
+								//sentence.add(word);
 								end = ".";
+								toParse.add(sentence);
+								sentence = new ArrayList<String>();
 							}else if(word.contains("!")){
+								//sentence.add(word);
+								toParse.add(sentence);
+								sentence = new ArrayList<String>();
 								end = "!";
 							}
 						}
@@ -186,10 +168,13 @@ public class Parser {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		for(ArrayList<String> sentence : toParse){
+			parser.parse(sentence);
+			System.out.println("(ROOT " + parser.PrintOneParse() + " " + end + ")");
+		}
 		
-		parser.parse(sentence);
 
 		
-		System.out.println("(ROOT " + parser.PrintOneParse() + " " + end + ")");
+		
 	}
 }

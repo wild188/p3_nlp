@@ -94,7 +94,7 @@ public class Generator {
 	public static void main(String[] args) {
 		// the first argument is the path to the grammar file.
 		Generator g = new Generator(args[0]);
-		ArrayList<String> res = g.generate(1);
+		ArrayList<String> res = g.generate(5);
 		for (String s : res) {
 			System.out.println(s);
 		}

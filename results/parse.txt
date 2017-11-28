@@ -1,26 +1,209 @@
-every
-perplexed
+the
 floor
 understood
-the
-president
-every => Det, 
-perplexed => Adj, 
-0, 2 : 
+a
+delicious
+sandwich
+with
+a
+staff
+the => Det, 
 floor => Noun, 
-Noun => Adj, Noun
-1, 3 : Noun, 
 NP => Det, Noun
-0, 3 : NP, 
-0, 3 : NP, 
+0, 2 : NP, 
 understood => Verb, 
+1, 3 : 
+0, 3 : 
+0, 3 : 
+a => Det, 
 2, 4 : 
 1, 4 : 
 1, 4 : 
 0, 4 : 
 0, 4 : 
 0, 4 : 
+delicious => Adj, 
+3, 5 : 
+2, 5 : 
+2, 5 : 
+1, 5 : 
+1, 5 : 
+1, 5 : 
+0, 5 : 
+0, 5 : 
+0, 5 : 
+0, 5 : 
+sandwich => Noun, 
+Noun => Adj, Noun
+4, 6 : Noun, 
+NP => Det, Noun
+3, 6 : NP, 
+3, 6 : NP, 
+VP => Verb, NP
+2, 6 : VP, 
+2, 6 : VP, 
+2, 6 : VP, 
+1, 6 : 
+1, 6 : 
+1, 6 : 
+1, 6 : 
+0, 6 : 
+S => NP, VP
+0, 6 : S, 
+0, 6 : S, 
+0, 6 : S, 
+0, 6 : S, 
+with => Prep, 
+5, 7 : 
+4, 7 : 
+4, 7 : 
+3, 7 : 
+3, 7 : 
+3, 7 : 
+2, 7 : 
+2, 7 : 
+2, 7 : 
+2, 7 : 
+1, 7 : 
+1, 7 : 
+1, 7 : 
+1, 7 : 
+1, 7 : 
+0, 7 : 
+0, 7 : 
+0, 7 : 
+0, 7 : 
+0, 7 : 
+0, 7 : 
+a => Det, 
+6, 8 : 
+5, 8 : 
+5, 8 : 
+4, 8 : 
+4, 8 : 
+4, 8 : 
+3, 8 : 
+3, 8 : 
+3, 8 : 
+3, 8 : 
+2, 8 : 
+2, 8 : 
+2, 8 : 
+2, 8 : 
+2, 8 : 
+1, 8 : 
+1, 8 : 
+1, 8 : 
+1, 8 : 
+1, 8 : 
+1, 8 : 
+0, 8 : 
+0, 8 : 
+0, 8 : 
+0, 8 : 
+0, 8 : 
+0, 8 : 
+0, 8 : 
+staff => Noun, 
+NP => Det, Noun
+7, 9 : NP, 
+PP => Prep, NP
+6, 9 : PP, 
+6, 9 : PP, 
+5, 9 : 
+5, 9 : 
+5, 9 : 
+4, 9 : 
+4, 9 : 
+4, 9 : 
+4, 9 : 
+3, 9 : 
+3, 9 : 
+NP => NP, PP
+3, 9 : NP, 
+3, 9 : NP, 
+3, 9 : NP, 
+VP => Verb, NP
+2, 9 : VP, 
+2, 9 : VP, 
+2, 9 : VP, 
+2, 9 : VP, 
+2, 9 : VP, 
+2, 9 : VP, 
+1, 9 : 
+1, 9 : 
+1, 9 : 
+1, 9 : 
+1, 9 : 
+1, 9 : 
+1, 9 : 
+0, 9 : 
+S => NP, VP
+0, 9 : S, 
+0, 9 : S, 
+0, 9 : S, 
+0, 9 : S, 
+0, 9 : S, 
+0, 9 : S, 
+0, 9 : S, 
+(ROOT null .)
+the
+president
+kissed
+every
+floor
 the => Det, 
+president => Noun, 
+NP => Det, Noun
+0, 2 : NP, 
+kissed => Verb, 
+1, 3 : 
+0, 3 : 
+0, 3 : 
+every => Det, 
+2, 4 : 
+1, 4 : 
+1, 4 : 
+0, 4 : 
+0, 4 : 
+0, 4 : 
+floor => Noun, 
+NP => Det, Noun
+3, 5 : NP, 
+VP => Verb, NP
+2, 5 : VP, 
+2, 5 : VP, 
+1, 5 : 
+1, 5 : 
+1, 5 : 
+0, 5 : 
+S => NP, VP
+0, 5 : S, 
+0, 5 : S, 
+0, 5 : S, 
+(ROOT null .)
+a
+president
+wanted
+a
+perplexed
+president
+a => Det, 
+president => Noun, 
+NP => Det, Noun
+0, 2 : NP, 
+wanted => Verb, 
+1, 3 : 
+0, 3 : 
+0, 3 : 
+a => Det, 
+2, 4 : 
+1, 4 : 
+1, 4 : 
+0, 4 : 
+0, 4 : 
+0, 4 : 
+perplexed => Adj, 
 3, 5 : 
 2, 5 : 
 2, 5 : 
@@ -32,22 +215,93 @@ the => Det,
 0, 5 : 
 0, 5 : 
 president => Noun, 
+Noun => Adj, Noun
+4, 6 : Noun, 
 NP => Det, Noun
-4, 6 : NP, 
+3, 6 : NP, 
+3, 6 : NP, 
 VP => Verb, NP
-3, 6 : VP, 
-3, 6 : VP, 
-2, 6 : 
-2, 6 : 
-2, 6 : 
+2, 6 : VP, 
+2, 6 : VP, 
+2, 6 : VP, 
 1, 6 : 
 1, 6 : 
 1, 6 : 
 1, 6 : 
-0, 6 : 
 0, 6 : 
 S => NP, VP
 0, 6 : S, 
 0, 6 : S, 
 0, 6 : S, 
+0, 6 : S, 
+(ROOT null .)
+the
+pickle
+wanted
+every
+staff
+the => Det, 
+pickle => Noun, 
+NP => Det, Noun
+0, 2 : NP, 
+wanted => Verb, 
+1, 3 : 
+0, 3 : 
+0, 3 : 
+every => Det, 
+2, 4 : 
+1, 4 : 
+1, 4 : 
+0, 4 : 
+0, 4 : 
+0, 4 : 
+staff => Noun, 
+NP => Det, Noun
+3, 5 : NP, 
+VP => Verb, NP
+2, 5 : VP, 
+2, 5 : VP, 
+1, 5 : 
+1, 5 : 
+1, 5 : 
+0, 5 : 
+S => NP, VP
+0, 5 : S, 
+0, 5 : S, 
+0, 5 : S, 
+(ROOT null .)
+the
+pickle
+understood
+a
+staff
+the => Det, 
+pickle => Noun, 
+NP => Det, Noun
+0, 2 : NP, 
+understood => Verb, 
+1, 3 : 
+0, 3 : 
+0, 3 : 
+a => Det, 
+2, 4 : 
+1, 4 : 
+1, 4 : 
+0, 4 : 
+0, 4 : 
+0, 4 : 
+staff => Noun, 
+NP => Det, Noun
+3, 5 : NP, 
+VP => Verb, NP
+2, 5 : VP, 
+2, 5 : VP, 
+1, 5 : 
+1, 5 : 
+1, 5 : 
+0, 5 : 
+S => NP, VP
+0, 5 : S, 
+0, 5 : S, 
+0, 5 : S, 
 (ROOT null .)
