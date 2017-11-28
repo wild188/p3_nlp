@@ -2,8 +2,9 @@
  * Parser based on the CYK algorithm.
  */
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 class Options {
 	public ArrayList<String> lhsList;
@@ -15,6 +16,16 @@ class Options {
 	public Options(ArrayList<String> lhss){
 		this();
 		this.lhsList = lhss;
+	}
+
+	@Override
+	public String toString(){
+		StringBuilder out = new StringBuilder();
+		for(String s : lhsList){
+			out.append(s);
+			out.append(", ");
+		}
+		return out.toString();
 	}
 }
 
@@ -77,6 +88,16 @@ public class Parser {
 	// 	return output;
 	// }
 
+	private Options mergeList(Options a, Options b){
+		Options out = new Options(a.lhsList);
+		for(String lhs : b.lhsList){
+			if(!out.lhsList.contains(lhs)){
+				out.lhsList.add(lhs);
+			}
+		}
+		return out;
+	}
+
 	private Options[][] table;
 
 	/**
@@ -87,42 +108,30 @@ public class Parser {
 		for(String word : sentence){
 			System.out.println(word);
 		}
-
-		//ArrayList<ArrayList<String>> table = new ArrayList<ArrayList<String>>(len + 1);
 		table = new Options[len + 1][len + 1];
-		//back = new int[len+1][len+1][30];
 
-		for(int j = 1; j < len + 1; j++){
+		for(int j = 1; j <= len; j++){
 			String word = sentence.get(j - 1);
 			table[j - 1][j] = new Options(g.findPreTerminals(word));
-			// String word = sentence.get(j - 1);
-			// ArrayList<String> lhsList = g.findLHS(word);
-			// table[j - 1][j] = new Options();
-			// for(String lhs : lhsList){
-			// 	ArrayList<RHS> rhsList = g.findProductions(lhs);
-			// 	for(RHS possible : rhsList){
-			// 		if(possible.contains(word)){
-			// 			int index = table[j - 1][j].lhsList.indexOf(lhs);
-			// 			if(index < 0){
-			// 				table[j - 1][j].lhsList.add(lhs);
-			// 				table[j - 1][j].prob.add(possible.getProb());
-			// 			}else{
-			// 				table[j - 1][j].prob.add(index, table[j - 1][j].prob.get(index) + possible.getProb());
-			// 			}
-			// 		}
-			// 	}
-			// }
+			System.out.println(word + " => " + table[j - 1][j].toString());
 
-			for(int i = j - 2; i > 0; i--){
-				for(int k = i + 1; k < j - 1; k++){
+			for(int i = j - 2; i >= 0; i--){
+				for(int k = i + 1; k <= j - 1; k++){
 
 					if(table[i][k] == null || table[k][j] == null){
+						
 						continue;
 					}
 					Options b = table[i][k];
 					Options c = table[k][j];
-					table[i][j] = lhsGenerator(b, c);
-
+					if(table[i][j] == null){
+						table[i][j] = lhsGenerator(b, c);
+					}else{
+						Options toAdd = lhsGenerator(b, c);
+						table[i][j] = mergeList(table[i][j], toAdd);
+					}
+					
+					System.out.println(i + ", " + j + " : " + table[i][j].toString());
 				}
 			}
 		}

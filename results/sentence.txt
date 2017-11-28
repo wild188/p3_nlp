@@ -1,1 +1,1 @@
-(ROOT(S(NP(Det every) (Noun pickle) ) (VP(Verb wanted) (NP(Det a) (Noun staff) ) ) )  !) 
+(ROOT(S(NP(Det every) (Noun(Adj perplexed) (Noun floor) ) ) (VP(Verb understood) (NP(Det the) (Noun president) ) ) )  .) 

@@ -1,6 +1,53 @@
 every
-pickle
-wanted
-a
-staff
-(ROOT null !)
+perplexed
+floor
+understood
+the
+president
+every => Det, 
+perplexed => Adj, 
+0, 2 : 
+floor => Noun, 
+Noun => Adj, Noun
+1, 3 : Noun, 
+NP => Det, Noun
+0, 3 : NP, 
+0, 3 : NP, 
+understood => Verb, 
+2, 4 : 
+1, 4 : 
+1, 4 : 
+0, 4 : 
+0, 4 : 
+0, 4 : 
+the => Det, 
+3, 5 : 
+2, 5 : 
+2, 5 : 
+1, 5 : 
+1, 5 : 
+1, 5 : 
+0, 5 : 
+0, 5 : 
+0, 5 : 
+0, 5 : 
+president => Noun, 
+NP => Det, Noun
+4, 6 : NP, 
+VP => Verb, NP
+3, 6 : VP, 
+3, 6 : VP, 
+2, 6 : 
+2, 6 : 
+2, 6 : 
+1, 6 : 
+1, 6 : 
+1, 6 : 
+1, 6 : 
+0, 6 : 
+0, 6 : 
+S => NP, VP
+0, 6 : S, 
+0, 6 : S, 
+0, 6 : S, 
+(ROOT null .)
