@@ -1,307 +1,69 @@
-the
-floor
-understood
-a
-delicious
+every
+pickle
+ate
+every
+pickled
 sandwich
-with
+0, 1 : every => Det, 
+1, 2 : pickle => Noun, 
+2, 3 : ate => Verb, 
+3, 4 : every => Det, 
+4, 5 : pickled => Verb, Adj, 
+5, 6 : sandwich => Noun, 
+(ROOT (S (NP (Det every) (Noun pickle) ) (VP (Verb ate) (NP (Det every) (Noun (Adj pickled) (Noun sandwich) ) ) ) )  !)
 a
-staff
-the => Det, 
-floor => Noun, 
-NP => Det, Noun
-0, 2 : NP, 
-understood => Verb, 
-1, 3 : 
-0, 3 : 
-0, 3 : 
-a => Det, 
-2, 4 : 
-1, 4 : 
-1, 4 : 
-0, 4 : 
-0, 4 : 
-0, 4 : 
-delicious => Adj, 
-3, 5 : 
-2, 5 : 
-2, 5 : 
-1, 5 : 
-1, 5 : 
-1, 5 : 
-0, 5 : 
-0, 5 : 
-0, 5 : 
-0, 5 : 
-sandwich => Noun, 
-Noun => Adj, Noun
-4, 6 : Noun, 
-NP => Det, Noun
-3, 6 : NP, 
-3, 6 : NP, 
-VP => Verb, NP
-2, 6 : VP, 
-2, 6 : VP, 
-2, 6 : VP, 
-1, 6 : 
-1, 6 : 
-1, 6 : 
-1, 6 : 
-0, 6 : 
-S => NP, VP
-0, 6 : S, 
-0, 6 : S, 
-0, 6 : S, 
-0, 6 : S, 
-with => Prep, 
-5, 7 : 
-4, 7 : 
-4, 7 : 
-3, 7 : 
-3, 7 : 
-3, 7 : 
-2, 7 : 
-2, 7 : 
-2, 7 : 
-2, 7 : 
-1, 7 : 
-1, 7 : 
-1, 7 : 
-1, 7 : 
-1, 7 : 
-0, 7 : 
-0, 7 : 
-0, 7 : 
-0, 7 : 
-0, 7 : 
-0, 7 : 
-a => Det, 
-6, 8 : 
-5, 8 : 
-5, 8 : 
-4, 8 : 
-4, 8 : 
-4, 8 : 
-3, 8 : 
-3, 8 : 
-3, 8 : 
-3, 8 : 
-2, 8 : 
-2, 8 : 
-2, 8 : 
-2, 8 : 
-2, 8 : 
-1, 8 : 
-1, 8 : 
-1, 8 : 
-1, 8 : 
-1, 8 : 
-1, 8 : 
-0, 8 : 
-0, 8 : 
-0, 8 : 
-0, 8 : 
-0, 8 : 
-0, 8 : 
-0, 8 : 
-staff => Noun, 
-NP => Det, Noun
-7, 9 : NP, 
-PP => Prep, NP
-6, 9 : PP, 
-6, 9 : PP, 
-5, 9 : 
-5, 9 : 
-5, 9 : 
-4, 9 : 
-4, 9 : 
-4, 9 : 
-4, 9 : 
-3, 9 : 
-3, 9 : 
-NP => NP, PP
-3, 9 : NP, 
-3, 9 : NP, 
-3, 9 : NP, 
-VP => Verb, NP
-2, 9 : VP, 
-2, 9 : VP, 
-2, 9 : VP, 
-2, 9 : VP, 
-2, 9 : VP, 
-2, 9 : VP, 
-1, 9 : 
-1, 9 : 
-1, 9 : 
-1, 9 : 
-1, 9 : 
-1, 9 : 
-1, 9 : 
-0, 9 : 
-S => NP, VP
-0, 9 : S, 
-0, 9 : S, 
-0, 9 : S, 
-0, 9 : S, 
-0, 9 : S, 
-0, 9 : S, 
-0, 9 : S, 
-(ROOT null .)
-the
 president
-kissed
+on
 every
+president
+ate
+a
 floor
-the => Det, 
-president => Noun, 
-NP => Det, Noun
-0, 2 : NP, 
-kissed => Verb, 
-1, 3 : 
-0, 3 : 
-0, 3 : 
-every => Det, 
-2, 4 : 
-1, 4 : 
-1, 4 : 
-0, 4 : 
-0, 4 : 
-0, 4 : 
-floor => Noun, 
-NP => Det, Noun
-3, 5 : NP, 
-VP => Verb, NP
-2, 5 : VP, 
-2, 5 : VP, 
-1, 5 : 
-1, 5 : 
-1, 5 : 
-0, 5 : 
-S => NP, VP
-0, 5 : S, 
-0, 5 : S, 
-0, 5 : S, 
-(ROOT null .)
-a
-president
-wanted
-a
-perplexed
-president
-a => Det, 
-president => Noun, 
-NP => Det, Noun
-0, 2 : NP, 
-wanted => Verb, 
-1, 3 : 
-0, 3 : 
-0, 3 : 
-a => Det, 
-2, 4 : 
-1, 4 : 
-1, 4 : 
-0, 4 : 
-0, 4 : 
-0, 4 : 
-perplexed => Adj, 
-3, 5 : 
-2, 5 : 
-2, 5 : 
-1, 5 : 
-1, 5 : 
-1, 5 : 
-0, 5 : 
-0, 5 : 
-0, 5 : 
-0, 5 : 
-president => Noun, 
-Noun => Adj, Noun
-4, 6 : Noun, 
-NP => Det, Noun
-3, 6 : NP, 
-3, 6 : NP, 
-VP => Verb, NP
-2, 6 : VP, 
-2, 6 : VP, 
-2, 6 : VP, 
-1, 6 : 
-1, 6 : 
-1, 6 : 
-1, 6 : 
-0, 6 : 
-S => NP, VP
-0, 6 : S, 
-0, 6 : S, 
-0, 6 : S, 
-0, 6 : S, 
-(ROOT null .)
+0, 1 : a => Det, 
+1, 2 : president => Noun, 
+2, 3 : on => Prep, 
+3, 4 : every => Det, 
+4, 5 : president => Noun, 
+5, 6 : ate => Verb, 
+6, 7 : a => Det, 
+7, 8 : floor => Noun, 
+(ROOT (S (NP (NP (Det a) (Noun president) ) (PP (Prep on) (NP (Det every) (Noun president) ) ) ) (VP (Verb ate) (NP (Det a) (Noun floor) ) ) )  !)
 the
-pickle
-wanted
-every
-staff
-the => Det, 
-pickle => Noun, 
-NP => Det, Noun
-0, 2 : NP, 
-wanted => Verb, 
-1, 3 : 
-0, 3 : 
-0, 3 : 
-every => Det, 
-2, 4 : 
-1, 4 : 
-1, 4 : 
-0, 4 : 
-0, 4 : 
-0, 4 : 
-staff => Noun, 
-NP => Det, Noun
-3, 5 : NP, 
-VP => Verb, NP
-2, 5 : VP, 
-2, 5 : VP, 
-1, 5 : 
-1, 5 : 
-1, 5 : 
-0, 5 : 
-S => NP, VP
-0, 5 : S, 
-0, 5 : S, 
-0, 5 : S, 
-(ROOT null .)
-the
-pickle
+president
 understood
 a
+floor
+0, 1 : the => Det, 
+1, 2 : president => Noun, 
+2, 3 : understood => Verb, 
+3, 4 : a => Det, 
+4, 5 : floor => Noun, 
+(ROOT (S (NP (Det the) (Noun president) ) (VP (Verb understood) (NP (Det a) (Noun floor) ) ) )  !)
+every
+pickle
+ate
+a
 staff
-the => Det, 
-pickle => Noun, 
-NP => Det, Noun
-0, 2 : NP, 
-understood => Verb, 
-1, 3 : 
-0, 3 : 
-0, 3 : 
-a => Det, 
-2, 4 : 
-1, 4 : 
-1, 4 : 
-0, 4 : 
-0, 4 : 
-0, 4 : 
-staff => Noun, 
-NP => Det, Noun
-3, 5 : NP, 
-VP => Verb, NP
-2, 5 : VP, 
-2, 5 : VP, 
-1, 5 : 
-1, 5 : 
-1, 5 : 
-0, 5 : 
-S => NP, VP
-0, 5 : S, 
-0, 5 : S, 
-0, 5 : S, 
-(ROOT null .)
+0, 1 : every => Det, 
+1, 2 : pickle => Noun, 
+2, 3 : ate => Verb, 
+3, 4 : a => Det, 
+4, 5 : staff => Noun, 
+(ROOT (S (NP (Det every) (Noun pickle) ) (VP (Verb ate) (NP (Det a) (Noun staff) ) ) )  !)
+a
+pickle
+ate
+every
+sandwich
+on
+a
+floor
+0, 1 : a => Det, 
+1, 2 : pickle => Noun, 
+2, 3 : ate => Verb, 
+3, 4 : every => Det, 
+4, 5 : sandwich => Noun, 
+5, 6 : on => Prep, 
+6, 7 : a => Det, 
+7, 8 : floor => Noun, 
+(ROOT (S (NP (Det a) (Noun pickle) ) (VP (Verb ate) (NP (NP (Det every) (Noun sandwich) ) (PP (Prep on) (NP (Det a) (Noun floor) ) ) ) ) )  !)

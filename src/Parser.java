@@ -54,7 +54,7 @@ public class Parser {
 					empty = false;
 					if(!output.lhsList.contains(lhs)){
 						output.lhsList.add(lhs);
-						System.out.println(lhs + " => " + potentialRHS.toString());
+						//System.out.println(lhs + " => " + potentialRHS.toString());
 					}
 				}
 				_rhs.remove(1);
@@ -88,7 +88,7 @@ public class Parser {
 		for(int j = 1; j <= len; j++){
 			String word = sentence.get(j - 1);
 			table[j - 1][j] = new Options(g.findPreTerminals(word));
-			System.out.println(word + " => " + table[j - 1][j].toString());
+			System.out.println((j - 1) + ", " + j + " : " + word + " => " + table[j - 1][j].toString());
 
 			for(int i = j - 2; i >= 0; i--){
 				for(int k = i + 1; k <= j - 1; k++){
@@ -105,17 +105,65 @@ public class Parser {
 						table[i][j] = mergeList(table[i][j], toAdd);
 					}
 					
-					System.out.println(i + ", " + j + " : " + table[i][j].toString());
+					//System.out.println(i + ", " + j + " : " + table[i][j].toString());
 				}
 			}
 		}
 	}
+
+	private String drillDown(int x, int y, int lhsIndex, ArrayList<String> sentence){
+		StringBuilder output = new StringBuilder();
+		Options target = table[x][y];
+		String lhs = target.lhsList.get(lhsIndex);
+		output.append("(");
+		if(x == y -1 && x < sentence.size()){
+			//base case
+			output.append(lhs);
+			output.append(" ");
+			output.append(sentence.get(x));
+		}else{
+			//recursive case
+			for (int k = x + 1; k <= y - 1; k++) {
+				if (table[x][k] == null || table[k][y] == null) {
+					continue;
+				}
+				int lhs1Index = 0;
+				for(String rhs1 : table[x][k].lhsList){
+					ArrayList<String> _rhs = new ArrayList<>(2);
+					_rhs.add(rhs1);
+					int lhs2Index = 0;
+					for(String rhs2 : table[k][y].lhsList){
+						_rhs.add(rhs2);
+						RHS possibleRHS = new RHS(_rhs);
+						String possibleLHS = g.rhsLookup(possibleRHS);
+						if(possibleLHS != null && possibleLHS.equals(lhs)){
+							output.append(lhs);
+							output.append(" ");
+							output.append(drillDown(x, k, lhs1Index, sentence));
+							output.append(drillDown(k, y, lhs2Index, sentence));
+						}
+						_rhs.remove(1);
+						lhs2Index++;
+					}
+					lhs1Index++;
+				}
+			}
+		}
+		output.append(") ");
+		return output.toString();
+	}
+
 	/**
 	 * Print the parse obtained after calling parse()
 	 */
-	public String PrintOneParse() {
-		
-		return null;
+	public String PrintOneParse(ArrayList<String> sentence) {
+		Options rootNode = table[0][table.length - 1 ];
+		int sIndex = rootNode.lhsList.indexOf("S");
+		if(sIndex < 0){
+			return "No parse tree found.";
+		}
+		String parseString = drillDown(0, table.length - 1, sIndex, sentence);
+		return parseString;
 	}
 	
 	public static void main(String[] args) {
@@ -170,7 +218,7 @@ public class Parser {
 		}
 		for(ArrayList<String> sentence : toParse){
 			parser.parse(sentence);
-			System.out.println("(ROOT " + parser.PrintOneParse() + " " + end + ")");
+			System.out.println("(ROOT " + parser.PrintOneParse(sentence) + " " + end + ")");
 		}
 		
 
