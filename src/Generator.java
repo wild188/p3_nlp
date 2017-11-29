@@ -9,7 +9,9 @@ import java.io.*;
 import java.util.*;
 
 public class Generator {
-	
+	private static final int NUMSENTENCES = 5;
+
+
 	private final int TERMIAL = 0;
 	private final int PRETERMINAL = 1;
 	private final int NONTERMINAL = 2;
@@ -36,11 +38,9 @@ public class Generator {
 		for(int i = 0; i < len; i++){
 			curmax += possibilities.get(i).getProb();
 			mapping[i] = curmax;
-			//System.out.println(i + " : " + possibilities.get(i).toString() + " = " + curmax);
 		}
 
 		double rand = Math.random() * curmax;
-		//System.out.println(rand);
 		for(int i = 0; i < len; i++){
 			if(rand < mapping[i]){
 				return possibilities.get(i);
@@ -94,7 +94,7 @@ public class Generator {
 	public static void main(String[] args) {
 		// the first argument is the path to the grammar file.
 		Generator g = new Generator(args[0]);
-		ArrayList<String> res = g.generate(5);
+		ArrayList<String> res = g.generate(NUMSENTENCES);
 		for (String s : res) {
 			System.out.println(s);
 		}

@@ -44,23 +44,16 @@ public class Parser {
 		Options output = new Options();
 		boolean empty = true;
 		for(String rhs1 : b.lhsList){
-			ArrayList<String> _rhs = new ArrayList<String>(2);
-			_rhs.add(rhs1);
 			for(String rhs2 : c.lhsList){
-				_rhs.add(rhs2);
-				RHS potentialRHS = new RHS(_rhs);
-				//String lhs = g.rhsLookup(potentialRHS);
 				ArrayList<String> lhsList = g.findLHS(rhs1 + " " + rhs2);
 				if(lhsList != null){
 					for(String lhs : lhsList){
 						empty = false;
 						if(!output.lhsList.contains(lhs)){
 							output.lhsList.add(lhs);
-							//System.out.println(lhs + " => " + potentialRHS.toString());
 						}
 					}
 				}
-				_rhs.remove(1);
 			}
 		}
 		return output;
@@ -83,20 +76,15 @@ public class Parser {
 	 */
 	public void parse(ArrayList<String> sentence) {
 		int len = sentence.size();
-		// for(String word : sentence){
-		// 	System.out.println(word);
-		// }
 		table = new Options[len + 1][len + 1];
 
 		for(int j = 1; j <= len; j++){
 			String word = sentence.get(j - 1);
 			table[j - 1][j] = new Options(g.findPreTerminals(word));
-			//System.out.println((j - 1) + ", " + j + " : " + word + " => " + table[j - 1][j].toString());
 
 			for(int i = j - 2; i >= 0; i--){
 				for(int k = i + 1; k <= j - 1; k++){
 					if(table[i][k] == null || table[k][j] == null){
-						
 						continue;
 					}
 					Options b = table[i][k];
@@ -107,8 +95,6 @@ public class Parser {
 						Options toAdd = lhsGenerator(b, c);
 						table[i][j] = mergeList(table[i][j], toAdd);
 					}
-					
-					//System.out.println(i + ", " + j + " : " + table[i][j].toString());
 				}
 			}
 		}
@@ -132,13 +118,8 @@ public class Parser {
 				}
 				int lhs1Index = 0;
 				for(String rhs1 : table[x][k].lhsList){
-					ArrayList<String> _rhs = new ArrayList<>(2);
-					_rhs.add(rhs1);
 					int lhs2Index = 0;
 					for(String rhs2 : table[k][y].lhsList){
-						_rhs.add(rhs2);
-						RHS possibleRHS = new RHS(_rhs);
-						//String possibleLHS = g.rhsLookup(possibleRHS);
 						ArrayList<String> possibleLHSlist = g.findLHS(rhs1 + " " + rhs2);
 						if(possibleLHSlist != null){
 							for(String possibleLHS : possibleLHSlist){
@@ -150,7 +131,6 @@ public class Parser {
 								}
 							}
 						}
-						_rhs.remove(1);
 						lhs2Index++;
 					}
 					lhs1Index++;
@@ -177,10 +157,7 @@ public class Parser {
 	public static void main(String[] args) {
 		// read the grammar in the file args[0]
 		Parser parser = new Parser(args[0]);
-
 		ArrayList<ArrayList<String>> toParse = new ArrayList<ArrayList<String>>();
-		
-		//String end = "$.$"; //otherwise undefined BILLY
 
 		// read a parse tree from a bash pipe
 		try {

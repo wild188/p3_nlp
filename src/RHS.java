@@ -62,7 +62,7 @@ public class RHS {
 			if(rhs.size() == 1){
 				return rhs.get(0);
 			}
-			return rhs.get(0) + ", " + rhs.get(1);
+			return rhs.get(0) + " " + rhs.get(1);
 		}
 
 		@Override

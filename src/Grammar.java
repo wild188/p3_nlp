@@ -30,27 +30,6 @@ public class Grammar {
 	 * */
 	private Hashtable<String, ArrayList<String>> rhs2lhs = null;
 
-	private Hashtable<RHS, String> rhsLookup;
-
-	private void rhsLookupBuilder(){
-		rhsLookup = new Hashtable<RHS, String>();
-		Set<String> lhsList = grammar.keySet();
-		for(String lhs : lhsList){
-			ArrayList<RHS> rhsList = grammar.get(lhs);
-			for(RHS rhs : rhsList){
-				rhsLookup.put(rhs, lhs);
-				//System.out.println(lhs + " => " + rhs.toString());
-			}
-		}
-	}
-
-	public String rhsLookup(RHS key){
-		if(rhsLookup.containsKey(key)){
-			return rhsLookup.get(key);
-		}
-		return null;
-	}
-
 	public Grammar(String filename) {
 		grammar = new Hashtable<String, ArrayList<RHS > >();
 		nonTerminals = new HashSet<String>();
@@ -135,7 +114,6 @@ public class Grammar {
 				rhs.setProb(rhs.getProb() / sum);
 			}
 		}
-		rhsLookupBuilder();
 	}
 	
 	/**
