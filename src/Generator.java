@@ -9,10 +9,11 @@ import java.io.*;
 import java.util.*;
 
 public class Generator {
+	//Dictates number of sentences
 	private static final int NUMSENTENCES = 5;
 
 
-	private final int TERMIAL = 0;
+	private final int TERMINAL = 0;
 	private final int PRETERMINAL = 1;
 	private final int NONTERMINAL = 2;
 	private final String ROOT = "ROOT";
@@ -27,6 +28,10 @@ public class Generator {
 		grammar = new Grammar(grammar_filename);
 	}
 
+	/**
+	 * Selects a RHS object based on its probability 
+	 * uses a random number generator so it will vary the output
+	 */
 	private RHS selectRHS(ArrayList<RHS> possibilities){
 		int len = possibilities.size();
 		if(possibilities == null || len < 1){
@@ -54,7 +59,7 @@ public class Generator {
 	 */
 	private String recursiveGen(String lhs){
 		//Base case
-		if(grammar.symbolType(lhs) == TERMIAL){
+		if(grammar.symbolType(lhs) == TERMINAL){
 			return (" " + lhs); 
 		}
 

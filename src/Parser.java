@@ -6,6 +6,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/**
+ * Options hols the possible list of lhs that a particular cell could have in a CKY table
+ */
 class Options {
 	public ArrayList<String> lhsList;
 
@@ -40,6 +43,10 @@ public class Parser {
 		g = new Grammar(grammar_filename);
 	}
 
+	/**
+	 * Generates an options object with a list of possible left hand side
+	 * given two options objects representing the two parts of the right hand side
+	 */
 	private Options lhsGenerator(Options b, Options c){
 		Options output = new Options();
 		boolean empty = true;
@@ -59,6 +66,10 @@ public class Parser {
 		return output;
 	}
 
+	/**
+	 * Takes two option objects and return one with a combination of their two lhsLists
+	 * removes any duplicates
+	 */
 	private Options mergeList(Options a, Options b){
 		Options out = new Options(a.lhsList);
 		for(String lhs : b.lhsList){
@@ -69,6 +80,7 @@ public class Parser {
 		return out;
 	}
 
+	//Used in the CKY algorithm
 	private Options[][] table;
 
 	/**
@@ -100,6 +112,10 @@ public class Parser {
 		}
 	}
 
+	/**
+	 * A recursive function for finding a single possible parse tree from
+	 * the table array created by the parse SKY method
+	 */
 	private String drillDown(int x, int y, int lhsIndex, ArrayList<String> sentence){
 		StringBuilder output = new StringBuilder();
 		Options target = table[x][y];
@@ -178,12 +194,12 @@ public class Parser {
 						if (parser.g.symbolType(word) == 0) {
 							if(!word.equals(".") && !word.equals("!")){
 								sentence.add(word);
-							}else if(word.contains(".")){
+							}else if(word.contains(".")){ //Marks the end of a sentence
 								sentence.add(word);
 								//end = ".";
 								toParse.add(sentence);
 								sentence = new ArrayList<String>();
-							}else if(word.contains("!")){
+							}else if(word.contains("!")){	//Marks the end of a sentence
 								sentence.add(word);
 								toParse.add(sentence);
 								sentence = new ArrayList<String>();
@@ -201,6 +217,8 @@ public class Parser {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		//Loops through and parses each sentence read in
 		for(ArrayList<String> sentence : toParse){
 			String end = sentence.get(sentence.size() - 1);
 			sentence.remove(sentence.size() - 1);
